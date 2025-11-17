@@ -5,6 +5,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Products from './pages/Products'
 import Dashboard from './pages/Dashboard'
+import AddProduct from './pages/AddProduct'
+import EditProduct from './pages/EditProduct'
 
 import { Route,Routes } from 'react-router-dom'
 function App() {
@@ -17,6 +19,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Products/>} />
       <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/add-product' element={<AddProduct/>}/>
+      <Route path='/edit-product/:id' element={<EditProduct/>}/>
     </Routes>
 
    </main>
