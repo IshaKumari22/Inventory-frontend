@@ -6,23 +6,23 @@ export default function EditProduct(){
     const navigate=useNavigate()
     const [form,setForm]=useState({
         name:"",
-        price:"",
-        quantity:"",
-        supplier_name:""
+        contact:"",
+        email:"",
+        address:""
     });
 
     useEffect(()=>{
-        const fetchProduct=async()=>{
+        const fetchSupplier=async()=>{
           try{
 
-            const res=await api.get(`/products/${id}/`);
+            const res=await api.get(`/suppliers/${id}/`);
             setForm(res.data)
           }catch(error){
             console.error(error);
-            alert("Failed to load product")
+            alert("Failed to load supplier")
           }
         };
-        fetchProduct();
+        fetchSupplier();
     },[id]);
     const handleChange=(e)=>{
         setForm({
@@ -34,9 +34,9 @@ export default function EditProduct(){
        e.preventDefault();
     
     try{
-        await api.put(`/products/${id}/`,form);
+        await api.put(`/suppliers/${id}/`,form);
         alert("Product updated successfully!");
-        navigate("/");
+        navigate("/suppliers");
     }catch(error){
         console.error(error);
         alert("Update failed")
@@ -53,7 +53,7 @@ export default function EditProduct(){
       <form onSubmit={handleSubmit} className="space-y-5">
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Product Name</label>
+          <label className="block text-gray-700 font-medium mb-1">Name</label>
           <input
             type="text"
             name="name"
@@ -65,36 +65,36 @@ export default function EditProduct(){
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Price</label>
+          <label className="block text-gray-700 font-medium mb-1">Contact</label>
           <input
             type="number"
-            name="price"
+            name="contact"
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            value={form.price}
+            value={form.contact}
             onChange={handleChange}
             required
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Quantity</label>
+          <label className="block text-gray-700 font-medium mb-1">Email</label>
           <input
-            type="number"
-            name="quantity"
+            type="email"
+            name="email"
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            value={form.quantity}
+            value={form.email}
             onChange={handleChange}
             required
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Supplier Name</label>
+          <label className="block text-gray-700 font-medium mb-1">Address</label>
           <input
             type="text"
-            name="supplier_name"
+            name="address"
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            value={form.supplier_name}
+            value={form.address}
             onChange={handleChange}
             required
           />
@@ -104,7 +104,7 @@ export default function EditProduct(){
           type="submit"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition"
         >
-          Update Product
+          Update Supplier
         </button>
 
       </form>
