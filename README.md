@@ -37,3 +37,8 @@ Low Stock Alerts
 Product Quantity Bar Chart
 
 <img width="1669" height="840" alt="image" src="https://github.com/user-attachments/assets/213bfc79-fa96-4e36-8448-c02e38f8090c" />
+
+
+
+<img width="1197" height="844" alt="image" src="https://github.com/user-attachments/assets/ea755599-acd1-43ac-9208-c0f6a73a60f4" />
+
